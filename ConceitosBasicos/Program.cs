@@ -5,11 +5,14 @@ do
 {
     Console.WriteLine("Informe oq deseja fazer:");
     Console.WriteLine("(1) calcular IMC");
-    Console.WriteLine("(2) Jogo de adivinhação");
+    Console.WriteLine("(2) Peso ideal");
+    Console.WriteLine("(3) Jogo de adivinhação");
     Console.WriteLine("(0) Encerrar");
     opcao = Convert.ToInt32(Console.ReadLine());
     if (opcao == 1)
         CalcularIMC();
+    else if (opcao == 3)
+        JogoAdivinhacao();
 } 
 
 while (opcao != 0);
@@ -26,7 +29,7 @@ static void CalcularIMC()
 
     float imc = peso / (altura * altura);
 
-    Console.WriteLine($"Para o peso {peso} e a altura {altura} o imc calculado foi {imc: f1} \n\n");
+    Console.WriteLine($"Para o peso {peso} e a altura {altura} o imc calculado foi {imc:f1} \n\n");
 
     string status = string.Empty;
 
@@ -44,7 +47,13 @@ static void CalcularIMC()
 
     else
         status = "Obesidade grave:";
-    Console.WriteLine($"o {imc} indica a classificação:\n\n {status}");
+    Console.WriteLine($"o {imc} indica a classificação:{status}");
+}
+static void JogoAdivinhacao()
+{
+    Console.WriteLine("Bom jogo");
+    Random random = new Random();
+    Console.WriteLine(random.Next(1, 100));
 }
 
 
